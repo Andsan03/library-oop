@@ -3,38 +3,38 @@ package org.ies.library.model;
 import java.util.Objects;
 
 public class Autor {
-    private String NIF;
-    private String Nombre;
-    private String Apellido;
+    private String nif;
+    private String nombre;
+    private String apellido;
 
-    public Autor(String apellido, String NIF, String nombre) {
-        this.Apellido = apellido;
-        this.NIF = NIF;
-        this.Nombre = nombre;
+    public Autor(String nif, String nombre, String apellido) {
+        this.nif = nif;
+        this.nombre = nombre;
+        this.apellido = apellido;
     }
 
-    public String getApellido() {
-        return Apellido;
+    public String getNif() {
+        return nif;
     }
 
-    public void setApellido(String apellido) {
-        this.Apellido = apellido;
-    }
-
-    public String getNIF() {
-        return NIF;
-    }
-
-    public void setNIF(String NIF) {
-        this.NIF = NIF;
+    public void setNif(String nif) {
+        this.nif = nif;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        this.Nombre = nombre;
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     @Override
@@ -42,20 +42,20 @@ public class Autor {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Autor autor = (Autor) o;
-        return Objects.equals(NIF, autor.NIF) && Objects.equals(Nombre, autor.Nombre) && Objects.equals(Apellido, autor.Apellido);
+        return Objects.equals(nif, autor.nif) && Objects.equals(nombre, autor.nombre) && Objects.equals(apellido, autor.apellido);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(NIF, Nombre, Apellido);
+        return Objects.hash(nif, nombre, apellido);
     }
 
     @Override
     public String toString() {
         return "Autor{" +
-                "Apellido='" + Apellido + '\'' +
-                ", NIF='" + NIF + '\'' +
-                ", Nombre='" + Nombre + '\'' +
+                "nif='" + nif + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
                 '}';
     }
 }

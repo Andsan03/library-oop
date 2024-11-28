@@ -4,48 +4,48 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Book {
-    private String ISBN;
-    private String Titulo;
-    private int Año;
-    private Autor[] Autor;
+    private String isbn;
+    private String titulo;
+    private int año;
+    private Autor[] autor;
 
-    public Book(Autor[] autor, int año, String ISBN, String titulo) {
-        this.Autor = autor;
-        this.Año = año;
-        this.ISBN = ISBN;
-        this.Titulo = titulo;
+    public Book(String isbn, String titulo, int año, Autor[] autor) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.año = año;
+        this.autor = autor;
     }
 
-    public org.ies.library.model.Autor[] getAutor() {
-        return Autor;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setAutor(Autor[] autor) {
-        this.Autor = autor;
-    }
-
-    public int getAño() {
-        return Año;
-    }
-
-    public void setAño(int año) {
-        this.Año = año;
-    }
-
-    public String getISBN() {
-        return ISBN;
-    }
-
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public String getTitulo() {
-        return Titulo;
+        return titulo;
     }
 
     public void setTitulo(String titulo) {
-        this.Titulo = titulo;
+        this.titulo = titulo;
+    }
+
+    public int getAño() {
+        return año;
+    }
+
+    public void setAño(int año) {
+        this.año = año;
+    }
+
+    public Autor[] getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Autor[] autor) {
+        this.autor = autor;
     }
 
     @Override
@@ -53,22 +53,31 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Año == book.Año && Objects.equals(ISBN, book.ISBN) && Objects.equals(Titulo, book.Titulo) && Objects.deepEquals(Autor, book.Autor);
+        return año == book.año && Objects.equals(isbn, book.isbn) && Objects.equals(titulo, book.titulo) && Objects.deepEquals(autor, book.autor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ISBN, Titulo, Año, Arrays.hashCode(Autor));
+        return Objects.hash(isbn, titulo, año, Arrays.hashCode(autor));
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "Autor=" + Arrays.toString(Autor) +
-                ", ISBN='" + ISBN + '\'' +
-                ", Titulo='" + Titulo + '\'' +
-                ", Año=" + Año +
+                "isbn='" + isbn + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", año=" + año +
+                ", autor=" + Arrays.toString(autor) +
                 '}';
+    }
+
+    public boolean hasAuthor(String nif) {
+        for (Autor author:autor) {
+            if (author.getNif().equals(nif)){
+                return true;
+            }
+        }
+        return false;
     }
 }
 
