@@ -48,6 +48,13 @@ public class Biblioteca {
                 ", libros=" + Arrays.toString(libros) +
                 '}';
     }
+    public Book findBook(String isbn) {
+        for (var book:libros) {
+            if (book.getIsbn().equals(isbn))
+                return book;
+        }
+        return null;
+    }
     public int countYearBooks (int years) {
         int number = 0;
         for (var book:libros) {
